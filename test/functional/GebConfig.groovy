@@ -151,7 +151,7 @@ environments {
 
         File phantomJSDriverLocalFile = downloadDriver(phantomJsFullDownloadPath, phantomjsExecPath, archiveExtension)*/
 
-        System.setProperty('phantomjs.binary.path', "/opt/phantomjs/phantomjs-1.9.2-linux-i686/bin/phantomjs")
+        //System.setProperty('phantomjs.binary.path', "/opt/phantomjs/phantomjs-1.9.2-linux-i686/bin/phantomjs")
         driver = {
             Capabilities caps = DesiredCapabilities.phantomjs()
             def phantomJsDriver = new PhantomJSDriver(PhantomJSDriverService.createDefaultService(caps), caps)
