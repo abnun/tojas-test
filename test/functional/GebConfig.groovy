@@ -21,8 +21,8 @@ baseNavigatorWaiting = true
 // See: http://code.google.com/p/selenium/wiki/FirefoxDriver
 driver = { new FirefoxDriver() }
 
-//baseUrl = "http://localhost:8080/"
-baseUrl = "http://markus-mueller.name:8080/tojas/"
+baseUrl = "http://localhost:8080/tojas"
+//baseUrl = "http://markus-mueller.name:8080/tojas/"
 //baseUrl = "https://www.tojas-olivenbaeume.de/"
 
 waiting {
