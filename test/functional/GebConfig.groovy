@@ -21,7 +21,8 @@ baseNavigatorWaiting = true
 // See: http://code.google.com/p/selenium/wiki/FirefoxDriver
 driver = { new FirefoxDriver() }
 
-baseUrl = "http://localhost:8080/tojas"
+baseUrl = System.getProperty("tojas.tests.baseurl")
+//baseUrl = "http://localhost:8080/tojas"
 //baseUrl = "http://markus-mueller.name:8080/tojas/"
 //baseUrl = "https://www.tojas-olivenbaeume.de/"
 
@@ -79,9 +80,9 @@ environments {
         driver = { new InternetExplorerDriver() }
     }
 
-    // run as "grails -Dgeb.env=phantomjs_dev test-app functional:"
-    phantomjs_dev {
-        String phantomJSVersion = '1.9.2'
+    // run as "grails -Dgeb.env=phantomjs-dev test-app functional:"
+    'phantomjs-dev' {
+        String phantomJSVersion = '1.9.8'
 
         String platform
         String archiveExtension
@@ -120,38 +121,8 @@ environments {
         }
     }
 
-    // run as "grails -Dgeb.env=phantomjs_test test-app functional:"
-    phantomjs_test {
-        /*String phantomJSVersion = '1.9.2'
-
-        String platform
-        String archiveExtension
-        String execFilePath
-
-        if (Platform.current.is(Platform.WINDOWS)) {
-            execFilePath = 'phantomjs.exe'
-            platform = 'windows'
-            archiveExtension = 'zip'
-        }
-        else if (Platform.current.is(Platform.MAC)) {
-            execFilePath = '/bin/phantomjs'
-            platform = 'macosx'
-            archiveExtension = 'zip'
-        } else if (Platform.current.is(Platform.LINUX)) {
-            execFilePath = '/bin/phantomjs'
-            platform = 'linux-i686'
-            archiveExtension = 'tar.bz2'
-        } else {
-            throw new RuntimeException("Unsupported operating system [${Platform.current}]")
-        }
-
-        String phantomjsExecPath = "phantomjs-${phantomJSVersion}-${platform}/${execFilePath}"
-
-        String phantomJsFullDownloadPath = "https://phantomjs.googlecode.com/files/phantomjs-${phantomJSVersion}-${platform}.${archiveExtension}"
-
-        File phantomJSDriverLocalFile = downloadDriver(phantomJsFullDownloadPath, phantomjsExecPath, archiveExtension)*/
-
-        //System.setProperty('phantomjs.binary.path', "/opt/phantomjs/phantomjs-1.9.2-linux-i686/bin/phantomjs")
+    // run as "grails -Dgeb.env=phantomjs-test test-app functional:"
+    'phantomjs-test' {
         driver = {
             Capabilities caps = DesiredCapabilities.phantomjs()
             def phantomJsDriver = new PhantomJSDriver(PhantomJSDriverService.createDefaultService(caps), caps)
